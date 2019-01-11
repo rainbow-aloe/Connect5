@@ -3,29 +3,16 @@ import java.awt.*;
 
 public class GeneralMess extends JFrame {
 
-    public static void main(String[] args)
-    {
-        new GeneralMess();
-    }
 
     //x z y
     int x,y,z = 0;
-    char[][][] array = new char[8][7][8];
+    private char[][][] array;
 
 
-    public GeneralMess()
+    public GeneralMess(char [][][] arr)
     {
         super();
-        array[0][0][0] = 'B';
-        array[1][1][1] = 'R';
-        array[2][2][2] = 'R';
-        array[3][3][3] = 'B';
-        array[4][4][4] = 'R';
-        array[5][5][5] = 'B';
-        array[6][6][6] = 'R';
-        array[7][6][7] = 'R';
-        array[6][5][7] = 'R';
-        //array[6][3][2] = 'R';
+        array = arr;
         setSize(200,700);
         setResizable(false);
         setUndecorated(true);
