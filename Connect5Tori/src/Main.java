@@ -7,6 +7,7 @@ public class Main
         b.setGeneralMess(g);
 
         b.makeMove(new Move(2,2), 'R');
-
+        b.makeMove(new Move(2,2), 'R');
+        b.makeMove(new Move(2,2), 'R');
     }
 }

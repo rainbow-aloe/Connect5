@@ -102,7 +102,8 @@ public class Board
                         if(l.getX()+x>0 && l.getY()+y>0 && l.getZ()+y>0 && l.getX()+x<X_SIZE && l.getY()+y<Y_SIZE && l.getZ()+y<Z_SIZE && board[l.getX()+x][l.getY()+y][l.getZ()+z]==p)
                         {
                             if(x==0 && y==0 && z==0)
-                                break;
+                            break;
+
                             System.out.print("\n" + x + " " + y + " " + z);
 
                             int one = frontCheck(l, p, x, y ,z, 0);
