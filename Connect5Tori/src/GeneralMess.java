@@ -3,16 +3,18 @@ import java.awt.*;
 
 public class GeneralMess extends JFrame {
 
-
-    //x z y
     int x,y,z = 0;
-    private char[][][] array;
+    Board b;
+
+    char[][][] array = new char[8][7][8];
 
 
-    public GeneralMess(char [][][] arr)
+    public GeneralMess(Board b)
     {
         super();
-        array = arr;
+        this.b = b;
+        this.array = array;
+
         setSize(200,700);
         setResizable(false);
         setUndecorated(true);
@@ -22,6 +24,7 @@ public class GeneralMess extends JFrame {
 
     public void paint(Graphics g)
     {
+        array = b.getBoard();
         g.setColor(Color.black);
         g.fillRect(0,0,210,520);
         g.setColor(Color.WHITE);
@@ -56,13 +59,13 @@ public class GeneralMess extends JFrame {
             {
                 for(int k = 0; k < array[0][0].length; k++)
                 {
-                    if(array[i][j][k] == 'R')
+                    if(array[i][j][k] == 'B')
                     {
                         g.setColor(new Color(15, 175, 255));
 
                         g.fillOval((int)(43 + (i * 16.5)),9 + (k * 5) + (j * 70),10,5 );
                     }
-                    else if(array[i][j][k] == 'B')
+                    else if(array[i][j][k] == 'R')
                     {
                         g.setColor(new Color(255, 40, 66));
                         g.fillOval((int)(43 + (i * 16.5)),9 + (k * 5) + (j * 70),10,5 );
