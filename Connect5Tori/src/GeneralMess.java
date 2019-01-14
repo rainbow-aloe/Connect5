@@ -25,17 +25,6 @@ public class GeneralMess extends JFrame {
         g.setColor(Color.black);
         g.fillRect(0,0,210,520);
         g.setColor(Color.WHITE);
-        /*g.drawLine(10,700,60,650);
-        g.drawLine(200,700,250,650);
-        g.drawLine(10,700,200,700);
-        g.drawLine(60,650,250,650);
-
-        g.drawLine(19,693,207,693);
-        g.drawLine(27,686,214,686);
-        g.drawLine(33,679,221,679);
-        g.drawLine(39,673,228,673);
-        g.drawLine(45,667,235,667);
-        g.drawLine(51,661,242,661);*/
 
         int multi = 70;
         for(int i = 0; i < 7; i++) {
