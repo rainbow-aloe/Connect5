@@ -59,6 +59,13 @@ public class Board
 
     public boolean makeMove(Move m, char p)
     {
+        if(winner==WIN)
+        {
+            System.out.print("yeet");
+            return true;
+        }
+
+
         Location l = new Location(0,0,0);
 
         if(isFull(m))
@@ -102,12 +109,12 @@ public class Board
                         if(l.getX()+x>0 && l.getY()+y>0 && l.getZ()+y>0 && l.getX()+x<X_SIZE && l.getY()+y<Y_SIZE && l.getZ()+y<Z_SIZE && board[l.getX()+x][l.getY()+y][l.getZ()+z]==p)
                         {
                             if(x==0 && y==0 && z==0)
-                            break;
-
-                            System.out.print("\n" + x + " " + y + " " + z);
+                                break;
 
                             int one = frontCheck(l, p, x, y ,z, 0);
                             int two = backCheck(l, p, x, y ,z, 0);
+
+                            System.out.print("\n" + one + " " + two);
 
                             if(one + two + 1 >= 5)
                             {
