@@ -3,8 +3,6 @@ import java.awt.*;
 
 public class GeneralMess extends JFrame {
 
-
-    //x z y
     int x,y,z = 0;
     Board b;
 
@@ -15,16 +13,6 @@ public class GeneralMess extends JFrame {
     {
         super();
         this.b = b;
-        /*array[0][0][0] = 'B';
-        array[1][1][1] = 'R';
-        array[2][2][2] = 'R';
-        array[3][3][3] = 'B';
-        array[4][4][4] = 'R';
-        array[5][5][5] = 'B';
-        array[6][6][6] = 'R';
-        array[7][6][7] = 'R';
-        array[6][5][7] = 'R';*/
-        //array[6][3][2] = 'R';
         this.array = array;
 
         setSize(200,700);
@@ -40,17 +28,6 @@ public class GeneralMess extends JFrame {
         g.setColor(Color.black);
         g.fillRect(0,0,210,520);
         g.setColor(Color.WHITE);
-        /*g.drawLine(10,700,60,650);
-        g.drawLine(200,700,250,650);
-        g.drawLine(10,700,200,700);
-        g.drawLine(60,650,250,650);
-
-        g.drawLine(19,693,207,693);
-        g.drawLine(27,686,214,686);
-        g.drawLine(33,679,221,679);
-        g.drawLine(39,673,228,673);
-        g.drawLine(45,667,235,667);
-        g.drawLine(51,661,242,661);*/
 
         int multi = 70;
         for(int i = 0; i < 7; i++) {
@@ -82,13 +59,13 @@ public class GeneralMess extends JFrame {
             {
                 for(int k = 0; k < array[0][0].length; k++)
                 {
-                    if(array[i][j][k] == 'R')
+                    if(array[i][j][k] == 'B')
                     {
                         g.setColor(new Color(15, 175, 255));
 
                         g.fillOval((int)(43 + (i * 16.5)),9 + (k * 5) + (j * 70),10,5 );
                     }
-                    else if(array[i][j][k] == 'B')
+                    else if(array[i][j][k] == 'R')
                     {
                         g.setColor(new Color(255, 40, 66));
                         g.fillOval((int)(43 + (i * 16.5)),9 + (k * 5) + (j * 70),10,5 );
