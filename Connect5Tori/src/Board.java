@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Board
 {
     public static final int X_SIZE = 8;
@@ -9,6 +11,8 @@ public class Board
     public static final int WIN = 'W';
     public static final int EMPTY = '-';
     public static final int PLAYING = '-';
+
+    private GeneralMess gm;
 
     private char[][][] board = new char[X_SIZE][Y_SIZE][Z_SIZE];
     private char winner;
@@ -59,15 +63,16 @@ public class Board
 
         if(isFull(m))
         {
-            for(int y = 0; y<Y_SIZE; y++)
+            for(int y = 6; y>0; y--)
             {
                 if (board[m.getRow()][y][m.getCol()] == EMPTY)
                 {
                     board[m.getRow()][y][m.getCol()] = p;
                     l = new Location(m.getRow(), y, m.getCol());
+                    gm.repaint();
                     break;
                 }
-                y++;
+                y--;
             }
 
             for(int x = 0; x<X_SIZE; x++)
@@ -96,6 +101,11 @@ public class Board
                     {
                         if(l.getX()+x>0 && l.getY()+y>0 && l.getZ()+y>0 && l.getX()+x<X_SIZE && l.getY()+y<Y_SIZE && l.getZ()+y<Z_SIZE && board[l.getX()+x][l.getY()+y][l.getZ()+z]==p)
                         {
+                            if(x==0 && y==0 && z==0)
+                            break;
+
+                            System.out.print("\n" + x + " " + y + " " + z);
+
                             int one = frontCheck(l, p, x, y ,z, 0);
                             int two = backCheck(l, p, x, y ,z, 0);
 
@@ -108,7 +118,6 @@ public class Board
                 }
             }
         }
-
         return false;
     }
 
@@ -137,10 +146,13 @@ public class Board
         for(int y = 0; y<Y_SIZE; y++)
         {
             if(board[m.getRow()][y][m.getCol()]==EMPTY)
-                return false;
+            {
+                return true;
+            }
+
         }
 
-        return true;
+        return false;
     }
 
     public void reset()
@@ -162,5 +174,9 @@ public class Board
     public void draw()
     {
 
+    }
+    public void setGeneralMess(GeneralMess g)
+    {
+        gm = g;
     }
 }
